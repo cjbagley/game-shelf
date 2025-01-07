@@ -4,7 +4,9 @@
     "scripts": {
         "build": "vue-tsc && vite build",
         "dev": "vite",
-        "pretty": "npx prettier --write resources/"
+        "pretty": "npx prettier --write resources/",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
     },
     "devDependencies": {
         "@eslint/js": "^9.17.0",

@@ -12,6 +12,23 @@ export default [
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
     ...pluginVue.configs["flat/essential"],
-    {files: ["**/*.vue"], languageOptions: {parserOptions: {parser: tseslint.parser}}},
-    eslintConfigPrettier
+    eslintConfigPrettier,
+    {
+        files: ["**/*.vue", "**/*.js"],
+        languageOptions: {parserOptions: {parser: tseslint.parser}},
+    },
+    {
+        files: ["app.vue", "error.vue", "pages/**/*.vue", "layouts/**/*.vue"],
+        rules: {
+            // disable the rule for these files
+            "vue/multi-word-component-names": "off",
+        },
+    },
+    {
+        ignores: [
+            "node_modules/*",
+            "vendor/*",
+            "public/*",
+        ]
+    }
 ];
