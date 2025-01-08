@@ -1,26 +1,19 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-    <header
-        class="flex h-16 items-center justify-center bg-gray-800 text-xl text-white"
-    >
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-        >
+    <header class="flex h-16 items-center justify-center gap-2 bg-gray-800 align-middle text-white">
+        <!--        https://icon-sets.iconify.design/mdi/?query=gamepad-circle-->
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
             <path
                 fill="currentColor"
-                d="M9 3v15h3V3zm3 2l4 13l3-1l-4-13zM5 5v13h3V5zM3 19v2h18v-2z"
+                d="M5 8a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m7-7a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 14a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m7-7a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4"
             />
         </svg>
-        Game Shelf
+        <h1>Game Shelf</h1>
     </header>
 </template>
 
 <style scoped>
-
+h1 {
+    font-family: 'Dangrek', sans-serif;
+    font-size: 50px;
+}
 </style>
