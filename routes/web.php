@@ -1,10 +1,15 @@
 <?php
 
+use App\Api\GameLookupService;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
+
+    $gs = new GameLookupService;
+    $gs->getGameDataFromSearch('Sonic');
+
     return Inertia::render('IndexPage');
 })->name('index');
 
