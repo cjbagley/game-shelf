@@ -20,6 +20,7 @@
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^3.0",
         "laravel/breeze": "^2.3",
+        "laravel/dusk": "^8.2",
         "laravel/pail": "^1.1",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
@@ -71,7 +72,10 @@
         "stan": "./vendor/bin/phpstan --memory-limit=2G",
         "dust": "./vendor/bin/duster lint",
         "sweep": "./vendor/bin/duster fix",
-        "test": "@php artisan test"
+        "test": [
+            "@php artisan test",
+            "@php artisan dusk"
+        ]
     },
     "extra": {
         "laravel": {
