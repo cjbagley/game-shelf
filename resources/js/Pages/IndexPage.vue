@@ -5,6 +5,6 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 <template>
     <GuestLayout>
-        <Head title="Game Shelf"/>
+        <Head title="Welcome"/>
     </GuestLayout>
 </template>
