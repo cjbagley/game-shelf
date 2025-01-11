@@ -4,6 +4,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { ref } from 'vue';
 import { useIgdb } from '@/Composables/useIgdb';
 import CardDisplay from '@/Components/CardDisplay.vue';
+import BadgeText from '@/Components/BadgeText.vue';
 
 const { searchGames, loading, error } = useIgdb();
 const searchQuery = ref('');
@@ -38,7 +39,7 @@ const handleSearch = async () => {
 
         <div
             v-if="games.length"
-            class="mt-6 grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+            class="mt-6 grid grid-cols-1 justify-items-center gap-y-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
         >
             <CardDisplay
                 v-for="game in games"
@@ -46,8 +47,15 @@ const handleSearch = async () => {
                 :alt="game.name"
                 :title="game.name"
                 :image="game.cover.url.replace('thumb', 'cover_big')"
+                additional-body-classes="justify-between text-center items-center"
             >
-                {{ game.name }}
+                <ul class="mt-4 flex list-none flex-wrap items-center gap-2">
+                    <li v-for="platform in game.platforms" :key="platform.id">
+                        <BadgeText>
+                            {{ platform.abbreviation ? platform.abbreviation : platform.name }}
+                        </BadgeText>
+                    </li>
+                </ul>
             </CardDisplay>
         </div>
     </GuestLayout>
