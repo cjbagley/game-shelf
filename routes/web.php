@@ -9,8 +9,8 @@ Route::get('/', function () {
     return Inertia::render('IndexPage');
 })->name('index');
 
-Route::get('/search', [SearchController::class, 'index'])->name('search');
-Route::post('/search', [SearchController::class, 'search'])->name('search.post');
+Route::get('search', [SearchController::class, 'index'])->name('search');
+Route::post('search', [SearchController::class, 'search'])->name('search.post');
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');

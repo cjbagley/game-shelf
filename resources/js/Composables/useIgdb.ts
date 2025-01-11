@@ -1,5 +1,5 @@
-import {ref} from "vue";
-import axios from "axios";
+import { ref } from 'vue';
+import axios from 'axios';
 
 export function useIgdb() {
     const loading = ref(false);
@@ -10,17 +10,15 @@ export function useIgdb() {
         error.value = null;
 
         try {
-            const response = await axios
-                .post(`/${endpoint}`, JSON.stringify({query: query}))
-                .catch((error) => {
-                    return {data: null, error: error.value};
-                });
+            const response = await axios.post(`/${endpoint}`, JSON.stringify({ query: query })).catch((error) => {
+                return { data: null, error: error.value };
+            });
 
-            return {data: response.data, error: null};
+            return { data: response.data, error: null };
         } catch (err) {
             return {
                 data: null,
-                error: err instanceof Error ? err.message : "Unknown error",
+                error: err instanceof Error ? err.message : 'Unknown error',
             };
         } finally {
             loading.value = false;
@@ -47,9 +45,9 @@ export function useIgdb() {
 
         // Cannot pass sort to the IGDB API when using search
         // So, sort the results by rating after receiving them
-        const {data, error} = await makeIgdbRequest("search", query);
+        const { data, error } = await makeIgdbRequest('search', query);
 
-        return {data, error};
+        return { data, error };
     };
 
     return {

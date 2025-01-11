@@ -3,8 +3,8 @@ import AppHeader from '@/Components/AppHeader.vue';
 </script>
 
 <template>
-    <AppHeader/>
+    <AppHeader />
     <div class="container mx-auto mt-5">
-        <slot/>
+        <slot />
     </div>
 </template>
