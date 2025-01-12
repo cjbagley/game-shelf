@@ -39,7 +39,7 @@ const handleSearch = async () => {
 
         <div
             v-if="games.length"
-            class="mt-6 grid grid-cols-1 justify-items-center gap-y-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+            class="mt-6 grid grid-cols-1 justify-items-center gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
         >
             <CardDisplay
                 v-for="game in games"

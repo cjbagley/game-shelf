@@ -11,8 +11,10 @@ defineProps<{
 </script>
 
 <template>
-    <div class="card w-96 bg-primary text-primary-content shadow-xl">
-        <figure v-if="image" class="px-10 pt-10">
+    <div
+        class="card card-compact w-72 bg-secondary text-secondary-content shadow-xl hover:cursor-pointer hover:bg-info md:w-80"
+    >
+        <figure v-if="image" class="pt-5">
             <img class="rounded-xl" :src="image" :alt="alt ?? 'image'" />
         </figure>
         <div class="card-body" :class="additionalBodyClasses">
