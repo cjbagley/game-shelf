@@ -4,6 +4,7 @@ namespace App\Api;
 
 use Carbon\CarbonInterval;
 use Exception;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -53,11 +54,19 @@ class GameLookupService
             platforms.abbreviation,
             summary,
             genres.name;
-        where category = (0) & rating != null;
-        limit 10;
+        where
+            category = (0, 4)
+            & platforms.category = (1,5)
+            & version_parent = null;
+        limit 50;
         ';
+        $result = $this->apiRequest('games', sprintf($query, $search));
 
-        return $this->apiRequest('games', sprintf($query, $search));
+        // Cannot pass sort to the IGDB API when using search
+        // So, sort the results by rating after receiving them
+        return array_values(Arr::sort($result, function (array $value) {
+            return $value['name'];
+        }));
     }
 
     private function getAccessToken(): ?string

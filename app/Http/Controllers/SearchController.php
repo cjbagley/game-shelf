@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Api\GameLookupService;
-use Illuminate\Http\Request;
+use App\Http\Requests\SearchRequest;
 use Inertia\Inertia;
 
 class SearchController extends Controller
@@ -13,10 +13,10 @@ class SearchController extends Controller
         return Inertia::render('SearchPage');
     }
 
-    public function search(Request $request)
+    public function search(SearchRequest $request)
     {
         $game_lookup_service = new GameLookupService;
 
-        return $game_lookup_service->getGameDataFromSearch('Sonic');
+        return $game_lookup_service->getGameDataFromSearch($request->get('query'));
     }
 }

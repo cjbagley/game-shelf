@@ -10,7 +10,7 @@ export function useIgdb() {
         error.value = null;
 
         try {
-            const response = await axios.post(`/${endpoint}`, JSON.stringify({ query: query })).catch((error) => {
+            const response = await axios.post(`/${endpoint}`, { query: query }).catch((error) => {
                 return { data: null, error: error.value };
             });
 
@@ -26,26 +26,7 @@ export function useIgdb() {
     };
 
     const searchGames = async (searchTerm: string) => {
-        const query = `
-              search "${searchTerm}";
-              fields
-                name,
-                cover.url,
-                total_rating,
-                total_rating_count,
-                category,
-                first_release_date,
-                platforms.name,
-                platforms.abbreviation,
-                summary,
-                genres.name;
-              where category = (0) & rating != null;
-              limit 100;
-            `;
-
-        // Cannot pass sort to the IGDB API when using search
-        // So, sort the results by rating after receiving them
-        const { data, error } = await makeIgdbRequest('search', query);
+        const { data, error } = await makeIgdbRequest('search', searchTerm);
 
         return { data, error };
     };

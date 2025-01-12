@@ -46,10 +46,10 @@ const handleSearch = async () => {
                 :key="game.id"
                 :alt="game.name"
                 :title="game.name"
-                :image="game.cover.url.replace('thumb', 'cover_big')"
+                :image="game?.cover?.url ? game.cover.url.replace('thumb', 'cover_big') : ''"
                 additional-body-classes="justify-between text-center items-center"
             >
-                <ul class="mt-4 flex list-none flex-wrap items-center gap-2">
+                <ul class="mt-4 flex list-none flex-wrap items-center justify-center gap-2">
                     <li v-for="platform in game.platforms" :key="platform.id">
                         <BadgeText>
                             {{ platform.abbreviation ? platform.abbreviation : platform.name }}

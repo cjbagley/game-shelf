@@ -2,6 +2,8 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import daisyui from 'daisyui';
 
+import daisyui0 from 'daisyui/src/theming/themes';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -24,7 +26,7 @@ export default {
         themes: [
             {
                 sunset: {
-                    ...require('daisyui/src/theming/themes')['sunset'],
+                    ...daisyui0['sunset'],
                     secondary: '#fde047',
                 },
             },
