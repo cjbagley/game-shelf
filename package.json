@@ -6,7 +6,9 @@
         "dev": "vite",
         "pretty": "npx prettier --write resources/",
         "lint": "eslint .",
-        "lint:fix": "eslint . --fix"
+        "lint:fix": "eslint . --fix",
+        "test": "vitest run",
+        "test:watch": "vitest"
     },
     "devDependencies": {
         "@eslint/js": "^9.17.0",
@@ -30,6 +32,7 @@
         "typescript": "~5.5.3",
         "typescript-eslint": "^8.19.1",
         "vite": "^6.0",
+        "vitest": "^2.1.8",
         "vue": "^3.4.0",
         "vue-tsc": "^2.0.24"
     }
