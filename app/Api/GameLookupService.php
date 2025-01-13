@@ -41,6 +41,9 @@ class GameLookupService
 
     public function getGameDataFromSearch(string $search): array
     {
+        // Note RE status - docs say 0 for released, but in my testing,
+        // actually released games don't have a status, and instead
+        // have a null value. So, I'm using null here.
         $query = '
         search "%s";
         fields
@@ -56,6 +59,7 @@ class GameLookupService
             genres.name;
         where
             category = (0, 4)
+            & status = null
             & platforms.category = (1,5)
             & version_parent = null;
         limit 50;

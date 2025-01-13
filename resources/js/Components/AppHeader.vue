@@ -1,5 +1,5 @@
 <template>
-    <header class="flex h-16 items-center justify-center gap-2 bg-neutral align-middle text-neutral-content">
+    <header class="flex h-16 items-center justify-center gap-2 bg-neutral align-middle text-secondary">
         <!--        https://icon-sets.iconify.design/mdi/?query=gamepad-circle-->
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
             <path

@@ -48,12 +48,12 @@ const handleSearch = async () => {
                 :alt="game.name"
                 :title="truncateText(game.name, 40)"
                 :image="game?.cover?.url ? game.cover.url.replace('thumb', 'cover_big') : ''"
-                additional-body-classes="justify-between text-center items-center"
+                additional-body-classes="justify-top text-center items-center"
             >
                 <ul class="flex list-none flex-wrap items-center justify-center gap-2 align-top">
                     <li v-for="platform in game.platforms" :key="platform.id">
                         <BadgeText>
-                            {{ platform.abbreviation ? platform.abbreviation : platform.name }}
+                            {{ truncateText(platform.abbreviation ? platform.abbreviation : platform.name, 10) }}
                         </BadgeText>
                     </li>
                 </ul>
