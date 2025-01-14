@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ImagePlaceholder from './ImagePlaceholder.vue';
+
 defineProps<{
     image?: string;
     alt?: string;
@@ -12,9 +14,14 @@ defineProps<{
     <div
         class="card card-compact w-72 bg-secondary text-secondary-content shadow-xl hover:cursor-pointer hover:bg-info md:w-80"
     >
-        <figure v-if="image" class="h-96 pt-5">
-            <img class="rounded-xl" :src="image" height="350" :alt="alt ?? 'image'" />
+        <figure v-if="image" class="mx-5 mt-5 h-96">
+            <img class="rounded-xl" :src="image" width="320" height="350" :alt="alt ?? 'image'" />
         </figure>
+
+        <figure v-if="!image" class="mx-5 mt-5 h-96 flex-col rounded-xl bg-slate-200">
+            <ImagePlaceholder />
+        </figure>
+
         <div class="card-body" :class="additionalBodyClasses">
             <h2 v-if="title" class="card-title h-12 items-start">{{ title }}</h2>
             <slot></slot>
