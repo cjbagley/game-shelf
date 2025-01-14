@@ -7,10 +7,19 @@ import CardDisplay from '@/Components/CardDisplay.vue';
 import BadgeText from '@/Components/BadgeText.vue';
 import { truncateText } from '@/Helpers/truncateText';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import GameDetails from '@/Components/GameModal.vue';
+import GameModal from '@/Components/GameModal.vue';
 
 const { searchGames, loading, error } = useIgdb();
 const searchQuery = ref('');
 const games = ref([]);
+const selectedGame = ref({});
+
+const openSlideover = (game: object) => {
+    selectedGame.value = game;
+    //isSlideoverOpen.value = true;
+    gameModal.showModal();
+};
 
 const handleSearch = async () => {
     if (!searchQuery.value.trim()) return;
@@ -59,6 +68,7 @@ const handleSearch = async () => {
             class="mt-12 grid grid-cols-1 justify-items-center gap-y-12 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
         >
             <CardDisplay
+                @click="openSlideover(game)"
                 v-for="game in games"
                 :key="game.id"
                 :alt="game.name"
@@ -75,5 +85,7 @@ const handleSearch = async () => {
                 </ul>
             </CardDisplay>
         </div>
+
+        <GameModal id="gameModal" v-if="selectedGame" :game="selectedGame" />
     </GuestLayout>
 </template>

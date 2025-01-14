@@ -18,7 +18,7 @@ defineProps<{
             <img class="rounded-box" :src="image" width="320" height="350" :alt="alt ?? 'image'" />
         </figure>
 
-        <figure v-if="!image" class="mx-5 mt-5 h-96 flex-col rounded-box bg-slate-200">
+        <figure v-if="!image" class="mx-5 mt-5 h-96 flex-col rounded-box bg-neutral text-neutral-content">
             <ImagePlaceholder />
         </figure>
 
