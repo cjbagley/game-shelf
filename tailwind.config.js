@@ -27,7 +27,7 @@ export default {
             {
                 sunset: {
                     ...daisyui0['sunset'],
-                    secondary: '#fde047',
+                    primary: '#fde047',
                 },
             },
         ],
